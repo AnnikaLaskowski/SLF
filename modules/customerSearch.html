@@ -1,0 +1,79 @@
+<div class="modal-header">
+    <h3><span class="glyphicon" style="padding-right: 5px"></span>Kundenverwaltung</h3>
+</div>
+<div style="height: 640px;overflow-y: auto;overflow-x: hidden" ng-controller="CustomerCtrl">
+    <div class="container full-width" style="margin-top: 10px; margin-left: 21px; margin-right: 21px">
+        <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Kunden
+                            <button type="button" class="btn btn-default btn-xs pull-right" ng-click="refresh()" tooltip="Aktualisieren"><i class="glyphicon glyphicon-refresh"></i></button>
+                            <button type="button" class="btn btn-default btn-xs pull-right" ng-class="{'active':showFilter}" ng-click="toggleSearch()" tooltip="Suchen"><i class="glyphicon glyphicon-search"></i></button>
+                            <button type="button" class="btn btn-default btn-xs pull-right" ng-click="addCustomer()" tooltip="Neuen Kunden hinzuf&uuml;gen"><i class="glyphicon glyphicon-plus"></i></button>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel panel-search" ng-show="showFilter">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Ergebnisliste filtern
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>Bitte w&auml;hlen Sie die Suchkriterien aus, um Ihr Suchergebnis einzuschr&auml;nken.</p>
+                                <form class="form-horizontal" role="form" name="SearchForm" ng-model="searchParams" novalidate>
+                                    <div class="form-group small">
+                                        <label class="col-sm-1 control-label sm"><small>Firma</small></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control input-sm" ng-model="searchParams.firma" />
+                                        </div>
+                                        <label class="col-sm-1 control-label sm"><small>Strasse</small></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control input-sm" ng-model="searchParams.strasse" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group small" style="paddint-top: 15px">
+                                        <label class="col-sm-1 control-label sm"><small>Plz</small></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control input-sm" ng-model="searchParams.plz" />
+                                        </div>
+                                        <label class="col-sm-1 control-label sm"><small>Ort</small></label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control input-sm" ng-model="searchParams.ort" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-4 col-sm-offset-1" style="margin-top:12px;">
+                                            <button class="btn-wide btn-sm btn-default" ng-click="searchParams = ''">Zur&uuml;cksetzen</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed">
+                    <tr>
+                        <th width="30%">Firma</th>
+                        <th width="15%">Strasse</th>
+                        <th width="10%">Plz</th>
+                        <th width="10%">Ort</th>
+                        <th width="30%">Telefon</th>
+                    </tr>
+                    <tr ng-repeat="c in customers | filter: searchParams" class="odd">
+                        <td>
+                            <a href="" ng-click="showCustomer(c);" >{{ c.firma }}</a>
+                        </td>
+                        <td>{{ c.strasse }}</td>
+                        <td>{{ c.plz }}</td>
+                        <td>{{ c.ort}}</td>
+                        <td>{{ c.telefon }}</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>

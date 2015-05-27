@@ -1,0 +1,20 @@
+﻿.covis-calendar {
+    font-size: 11px;
+}
+
+.covis-calendar td.time-slot {
+    width: 50px;
+    padding: 5px 2px;
+}
+
+.covis-calendar td.input-cell {
+    padding: 2px 5px;
+    height: 20px;
+}
+
+.covis-calendar .input-sm {
+    border: none;
+    padding: 0;
+    font-size: 11px;
+    height: 20px;
+}

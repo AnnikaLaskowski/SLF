@@ -1,0 +1,33 @@
+{
+  "name": "SLF",
+  "version": "0.0.0",
+  "description": "nix",
+  "main": "js/app.js",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "Annika Laskowski"
+  ],
+  "license": "commercial",
+  "homepage": "http://slf.dev",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "angular-route": "~1.3.15",
+    "angular": "~1.3.15",
+    "jquery": "~2.1.4",
+    "jqueryui": "~1.11.4",
+    "fullcalendar": "~2.3.1",
+    "fontawesome": "~4.3.0",
+    "angular-sanitize": "~1.3.15",
+    "angular-resource": "~1.3.15",
+    "angular-ui-utils": "~0.2.3"
+  }
+}

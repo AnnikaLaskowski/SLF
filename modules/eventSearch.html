@@ -1,0 +1,64 @@
+﻿<div class="modal-header">
+    <h3><span class="glyphicon" style="padding-right: 5px"></span>Eventsuche</h3>
+</div>
+<div style="height: 640px;overflow-y: auto;overflow-x: hidden" ng-controller="EventCtrl">
+    <div class="container full-width" style="margin-top: 10px; margin-left: 21px">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Veranstaltungen
+                        <button type="button" style="height: 23px" class="btn btn-default btn-xs pull-right" ng-click="refresh()" tooltip="Aktualisieren"><i class="glyphicon glyphicon-refresh"></i></button>
+                        <button type="button" style="height: 23px" class="btn btn-default btn-xs pull-right" ng-class="{'active':showFilter}" ng-click="toggleSearch()" tooltip="Suchen"><i class="glyphicon glyphicon-search"></i></button>
+                        <button type="button" style="height: 23px" class="btn btn-default btn-xs pull-right" ng-click="addNewEvent()" tooltip="Neue Veranstaltung erstellen"><i class="glyphicon glyphicon-plus"></i></button>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-search" ng-show="showFilter">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Ergebnisliste filtern
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Bitte w&auml;hlen Sie die Suchkriterien aus, um Ihr Suchergebnis einzuschr&auml;nken.</p>
+                            <form class="form-horizontal" role="form" name="SearchForm" ng-model="searchParams" novalidate>
+                                <div class="form-group small">
+                                    <label class="col-sm-1 control-label sm"><small>Titel</small></label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control input-sm" ng-model="searchParams.title" />
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-1" style="margin-top:12px;">
+                                        <button class="btn-wide btn-sm btn-default" ng-click="searchParams = ''">Zur&uuml;cksetzen</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed">
+                <tr>
+                    <th width="70%">Titel</th>
+
+                    <th width="15%">Start</th>
+                    <th width="15%">Ende</th>
+                </tr>
+                <tr ng-repeat="e in events | filter: searchParams" class="odd">
+                    <td>
+                        <a href="" ng-click="showEvent(e);" >{{ e.title }}</a>
+                    </td>
+
+                    <td>{{ e.start }}</td>
+                    <td>{{ e.end }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

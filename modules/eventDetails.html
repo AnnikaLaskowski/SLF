@@ -1,0 +1,51 @@
+<div class="widget-header" ng-controller="EventCtrl">
+    <h5 class="bigger lighter">{{ selectedEvent.id ? 'Veranstaltung bearbeiten - ' + selectedEvent.title  : 'Neue Veranstaltung anlegen' }}</h5>
+    <div class="widget-toolbar">
+        <button class="btn btn-xs btn-primary bigger" ng-click="save(account)" tooltip="Speichern">
+            <i class="fa fa-save"></i>
+        </button>
+    </div>
+</div>
+<div class="modal-body">
+    <div style="height: 640px;overflow-y: auto;overflow-x: hidden">
+        <div class="container full-width" style="margin-top: 10px">
+            <div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default minified">
+                            <div class="panel-heading minified">Datum:
+                                <input type="text" datepicker-popup="MM-dd-yyyy"
+                                       ng-model="selectedEvent.start"
+                                       name="date" is-open="datepickers.date" datepicker-options="dateOptions"
+                                       close-text="Schließen"
+                                        />
+                                    <button class="btn btn-default btn-xs" ng-click="open($event,'date')">
+                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 5px">
+                    <label class="col-lg-2 control-label control-label-xs" style="vertical-align: bottom">Start:</label>
+                    <div class="col-sm-3">
+                        <div covis-timepicker cov-min-time="7" cov-max-time="17" ng-selected="selectedEvent.start"></div>
+                    </div>
+                    <label class="col-lg-2 control-label control-label-xs" style="vertical-align: bottom">Ende:</label>
+                    <div class="col-sm-3">
+                        <div covis-timepicker cov-min-time="7" cov-max-time="17"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 10px" ng-controller="CustomerCtrl">
+                <label class="col-lg-2 control-label control-label-xs" style="vertical-align: bottom">Veranstalter:</label>
+                <div class="col-sm-8">
+                    <ul class="nav nav-list">
+                        <select class="input-sm form-control" style="width: 100%" ng-options="c.id as c.firma for c in customers" ng-model="selectedEvent.organizer">
+                            <option value="">-- Bitte w&auml;hlen Sie einen Veranstalter --</option>
+                        </select>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿<div class="row" ng-controller="CustomerCtrl">
+    <div class="widget-header">
+        <h5 class="bigger lighter">{{ selectedCustomer.id ? 'Kunde bearbeiten - ' + selectedCustomer.firma  : 'Neuen Kunden anlegen' }}</h5>
+        <div class="widget-toolbar">
+            <button class="btn btn-xs btn-primary bigger" ng-click="save(account)" tooltip="Speichern">
+                <i class="fa fa-save"></i>
+            </button>
+        </div>
+    </div>
+    <div style="height: 640px;overflow-y: auto;overflow-x: hidden">
+        <div class="container full-width" style="margin-top: 10px; margin-left: 21px; margin-right: 21px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default minified">
+                        <div class="panel-heading minified">Kundenstammdaten</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <table class="table table-condensed table-striped no-space-between">
+                        <tbody>
+                            <tr class="odd">
+                                <td class="odd">
+                                    <strong>Firma:</strong>
+                                </td>
+                                <td class="odd">
+                                    <input type="text" class="form-control input-sm" ng-model="selectedCustomer.firma"/>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="odd">
+                                    <strong>Strasse:</strong>
+                                </td>
+                                <td class="odd">
+                                    <input type="text" class="form-control input-sm" ng-model="selectedCustomer.strasse"/>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="odd">
+                                    <strong>PLZ:</strong>
+                                </td>
+                                <td class="odd">
+                                    <input type="text" class="form-control input-sm" ng-model="selectedCustomer.plz" style="width: 80px"/>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="odd">
+                                    <strong>Ort:</strong>
+                                </td>
+                                <td class="odd">
+                                    <input type="text" class="form-control input-sm" ng-model="selectedCustomer.ort"/>
+                                </td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="odd">
+                                    <strong>Telefon:</strong>
+                                </td>
+                                <td class="odd">
+                                    <input type="text" class="form-control input-sm" ng-model="selectedCustomer.telefon"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="container full-width" style="margin-top: 10px; margin-left: 21px; margin-right: 21px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default minified">
+                        <div class="panel-heading minified">Kontakte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
